@@ -1,5 +1,6 @@
 package com.devex.pages;
 
+import com.devex.utilities.ConfigurationReader;
 import com.devex.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,12 @@ public class LoginPage extends BasePage{
     public void login(String email, String password){
         emailFeld.sendKeys(email);
         passwordFeld.sendKeys(password);
+        loginSubmitBtn.click();
+    }
+
+    public void login1(){
+        emailFeld.sendKeys(ConfigurationReader.get("loginMail"));
+        passwordFeld.sendKeys(ConfigurationReader.get("loginPassword"));
         loginSubmitBtn.click();
     }
 }
